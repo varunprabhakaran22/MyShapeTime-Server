@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/varunprabhakaran22/MyShapeTime-Server/issues"
   },
-  "homepage": "https://github.com/varunprabhakaran22/MyShapeTime-Server#readme"
+  "homepage": "https://github.com/varunprabhakaran22/MyShapeTime-Server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
