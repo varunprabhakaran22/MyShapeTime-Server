@@ -2,17 +2,18 @@
 const express = require('express');
 const router = express.Router();
 let userData
-
+let weight
+let height
+let bmi
 
 router.post('/',(req,res) => {
     userData =  req.body;
-    console.log(userData)
-    // console.log(typeof(userData))
-    // console.log(userData[0])   
+    weight = userData.originalWeight;
+    height = userData.height;
+    bmi = Math.round(weight/((height/100)*(height/100)));
+    console.log("bmi is " + bmi);
+
 })
-
-
-
 
 
 module.exports = router;
