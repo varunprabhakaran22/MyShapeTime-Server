@@ -5,6 +5,9 @@ let userData
 let weight
 let height
 let bmi
+let age
+let weightInPound;
+let bmr
 let originalWeight 
 let desiredWeight
 
@@ -13,6 +16,7 @@ router.post('/',(req,res) => {
     weight = userData.originalWeight;
     height = userData.height;
     originalWeight = userData.originalWeight
+    age = userData.age;
 
     //calculating the bmi 
     bmi = Math.round(weight/((height/100)*(height/100)));
@@ -60,8 +64,20 @@ function categorizing(){
 
 
 function weightloss(){
-    let weightInPound 
-    weightInPound = Math.round(originalWeight * 2.20)
+
+    weightInPound = Math.round(originalWeight * 2.20);
+    bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
+    let caloriesPerDay = ( bmr * 1 );
+    console.log(caloriesPerDay);
+    
+}
+
+function gainweight(){
+    weightInPound = Math.round(originalWeight * 2.20);
+    bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
+    let caloriesPerDay = ( bmr * 1.4 );
+    console.log(caloriesPerDay);
+
 }
 
 module.exports = router;
