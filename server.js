@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 app.use(cors())
 
-
-app.use('/api',require('./route'));
+app.use('/weight',require('./route'));
+// app.use('/menu',require('./routemenu'));
 
 
 app.listen(3000, ()=> {
