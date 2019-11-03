@@ -10,6 +10,7 @@ let weightInPound;
 let bmr
 let originalWeight 
 let desiredWeight
+weightInPound = Math.round(originalWeight * 2.20);
 
 router.post('/',(req,res) => {
     userData =  req.body;
@@ -46,38 +47,18 @@ router.post('/desiredWeight',(req,res) => {
     desiredWeight = userData.desiredWeight;
     console.log("Goal " + weight);
     res.json({"goal":weight})
-
-    //function calling 
-    categorizing();
-})
-
-
-function categorizing(){
     if(originalWeight > desiredWeight ){
-        weightloss();
+        bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
+        let caloriesPerDay = ( bmr * 1.1 );
+        console.log(caloriesPerDay);
     }
     else
     {
-        gainweight();        
+        bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
+        let caloriesPerDay = ( bmr * 1.4 );
+        console.log(caloriesPerDay);     
     }
-}
+})
 
-
-function weightloss(){
-
-    weightInPound = Math.round(originalWeight * 2.20);
-    bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
-    let caloriesPerDay = ( bmr * 1 );
-    console.log(caloriesPerDay);
-    
-}
-
-function gainweight(){
-    weightInPound = Math.round(originalWeight * 2.20);
-    bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
-    let caloriesPerDay = ( bmr * 1.4 );
-    console.log(caloriesPerDay);
-
-}
 
 module.exports = router;
