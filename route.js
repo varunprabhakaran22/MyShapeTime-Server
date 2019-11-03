@@ -39,7 +39,7 @@ router.post('/',(req,res) => {
         
     }
     res.json({"bmi":bmi});
-})
+});
 
 router.post('/desiredWeight',(req,res) => {
     userData =  req.body;
@@ -58,7 +58,8 @@ router.post('/desiredWeight',(req,res) => {
         let caloriesPerDay = ( bmr * 1.4 );
         console.log(caloriesPerDay);     
     }
-})
+    res.json({"caloriesPerDay" : caloriesPerDay})
+});
 
 
 module.exports = router;
