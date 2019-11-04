@@ -11,7 +11,7 @@ let bmr
 let originalWeight 
 let desiredWeight
 let caloriesPerDay
-let breakfast ={}
+let breakfast =[]
 let lunch
 let dinner
 let snacks
@@ -133,7 +133,7 @@ router.post('/',(req,res) => {
 });
 
 router.post('/desiredWeight',(req,res) => {
-	let random;
+	let random = 1;
     userData =  req.body;
     weight = userData.desiredWeight;
     desiredWeight = userData.desiredWeight;
@@ -145,12 +145,21 @@ router.post('/desiredWeight',(req,res) => {
         console.log(caloriesPerDay);
 		console.log(menu);
 		let max = 5, min = 0;
-		random = Math.round(Math.random() * (+max - +min) + +min);
-		console.log(random);
-		
+		for(let i = 0; i < 2; i++){
+			let randomOne = 0;
+			if(randomOne === random){
+				i--;
+			}
+			else{
+				random = Math.round(Math.random() * (+max - +min) + +min);
+				randomOne = random;
+				console.log(random);
+				breakfast = breakfast.push(menu.breakfast[random]);
+			}
+		}
+		console.log(breakfast);
     }
     // weight gain
-    else
     {
         bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
         caloriesPerDay = ( bmr * 1.4 );
