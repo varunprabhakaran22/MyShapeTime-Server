@@ -18,7 +18,7 @@ let snacks
 let singleMenu
 weightInPound = Math.round(originalWeight * 2.20);
 let menu = {
-	"Food": [{
+	"breakfast": [{
 			"Name": "Egg",
 			"Protein": 5,
 			"Calorie": 78
@@ -29,19 +29,31 @@ let menu = {
 			"Calorie": 42
 		},
 		{
-			"Name": "Nuts",
-			"Protein": 7,
-			"Calorie": 607
+			"Name": "Banana",
+			"Protein": 1.3,
+			"Calorie": 100
 		},
 		{
-			"Name": "Beans",
-			"Protein": 8,
-			"Calorie": 347
+			"Name": "OatMmeals",
+			"Protein": 17,
+			"Calorie": 68
 		},
 		{
+			"Name": "Wheat Bread",
+			"Protein": 3.6,
+			"Calorie": 69
+		}
+	],
+	
+	"lunch" :[{
 			"Name": "Chicken Breast",
 			"Protein": 20,
 			"Calorie": 165
+		},
+		{
+			"Name": "Brown Rice",
+			"Protein": 3,
+			"Calorie": 111
 		},
 		{
 			"Name": "Spinach",
@@ -57,22 +69,26 @@ let menu = {
 			"Name": "Tuna",
 			"Protein": 20,
 			"Calorie": 180
+		}
+	],
+	
+	"dinner" :[{
+			"Name": "Nuts",
+			"Protein": 7,
+			"Calorie": 607
 		},
 		{
-			"Name": "Wheat Bread",
-			"Protein": 3.6,
-			"Calorie": 69
+			"Name": "Beans",
+			"Protein": 8,
+			"Calorie": 347
 		},
+	
 		{
 			"Name": "Broccoli",
 			"Protein": 3,
 			"Calorie": 34
 		},
-		{
-			"Name": "OatMmeals",
-			"Protein": 17,
-			"Calorie": 68
-		},
+		
 		{
 			"Name": "Avacados",
 			"Protein": 2.5,
@@ -83,23 +99,16 @@ let menu = {
 			"Protein": 2.5,
 			"Calorie": 77
 		},
-		{
-			"Name": "Brown Rice",
-			"Protein": 3,
-			"Calorie": 111
-		},
+		
 		{
 			"Name": "Chapathi",
 			"Protein": 3.5,
 			"Calorie": 90
-		},
-		{
-			"Name": "Banana",
-			"Protein": 1.3,
-			"Calorie": 100
 		}
+		
 	]
 }
+
 
 router.post('/',(req,res) => {
     userData =  req.body;
