@@ -81,14 +81,7 @@ let menu = {
 			"Name": "Beans",
 			"Protein": 8,
 			"Calorie": 347
-		},
-	
-		{
-			"Name": "Broccoli",
-			"Protein": 3,
-			"Calorie": 34
-		},
-		
+		},	
 		{
 			"Name": "Avacados",
 			"Protein": 2.5,
@@ -140,6 +133,7 @@ router.post('/',(req,res) => {
 });
 
 router.post('/desiredWeight',(req,res) => {
+	let random;
     userData =  req.body;
     weight = userData.desiredWeight;
     desiredWeight = userData.desiredWeight;
@@ -149,15 +143,11 @@ router.post('/desiredWeight',(req,res) => {
         bmr = ( 655.1 + ( 9.563 * originalWeight) + ( 1.85 * height  ) - ( 4.676 * age ));
         caloriesPerDay = ( bmr * 1.1 );
         console.log(caloriesPerDay);
-        console.log(menu);
-        // userSearch=jsonData.data.filter( (value) => (value.skills.toLowerCase().includes(skill)) || 
-        // (value.location.toLowerCase().includes(skill)) ||
-        // (value.experience.toLowerCase().includes(skill)))
-
-        breakfast.Name = menu.Food.filter( (value ) => ( value.Name.toLowerCase() === "milk"))
-        console.log("Hey" + breakfast.Name);
-        
-        
+		console.log(menu);
+		let max = 5, min = 0;
+		random = Math.round(Math.random() * (+max - +min) + +min);
+		console.log(random);
+		
     }
     // weight gain
     else
@@ -167,9 +157,9 @@ router.post('/desiredWeight',(req,res) => {
         console.log(caloriesPerDay);     
     }
     res.json({"caloriesPerDay" : caloriesPerDay})
-    console.log(menu.Food.length);
-    singleMenu = menu.Food[0];
-    console.log(singleMenu.Name)
+    // console.log(menu.Food.length);
+    // singleMenu = menu.Food[0];
+    // console.log(singleMenu.Name)
 });
 
 module.exports = router;
